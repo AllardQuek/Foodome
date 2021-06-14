@@ -1,6 +1,7 @@
 import React from "react";
-import { Text, View } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { Image, Text, View, StyleSheet } from "react-native";
+import AppText from "../components/AppText";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const HomeScreen = () => {
   return (
@@ -9,11 +10,17 @@ const HomeScreen = () => {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "lightblue",
+        backgroundColor: "white",
       }}
     >
-      <Text>Home!</Text>
-      <AntDesign name="upcircleo" size={24} color="black" />
+      <AppText>Foodome</AppText>
+      <MaterialCommunityIcons
+        style={{ color: "#F9881F" }}
+        name="food-croissant"
+        size={64}
+        color="black"
+      />
+      {/* <AntDesign name="upcircleo" size={24} color="black" /> */}
     </View>
   );
 };
