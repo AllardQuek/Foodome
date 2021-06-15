@@ -3,7 +3,12 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { icons, SIZES, COLORS, FONTS } from "../constants";
 
-const Restaurant = ({ categories, item, navigation, currentLocation }) => {
+const RestaurantListing = ({
+  categories,
+  item,
+  navigation,
+  currentLocation,
+}) => {
   // Dummy Datas
   const getCategoryNameById = (id) => {
     let category = categories.filter((a) => a.id == id);
@@ -57,7 +62,7 @@ const Restaurant = ({ categories, item, navigation, currentLocation }) => {
         </View>
       </View>
 
-      {/* Restaurant Info */}
+      {/* RestaurantListing Info */}
       <Text style={{ ...FONTS.body2 }}>{item.name}</Text>
 
       <View
@@ -130,4 +135,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Restaurant;
+export default RestaurantListing;
