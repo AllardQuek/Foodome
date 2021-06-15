@@ -9,7 +9,7 @@ import {
   FlatList,
 } from "react-native";
 
-import { icons, images, SIZES, COLORS, FONTS } from "../constants";
+import { SIZES, COLORS, FONTS } from "../constants";
 import categoryData from "../data/categories";
 import shopData from "../data/shops";
 import Category from "../components/Category";
