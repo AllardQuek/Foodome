@@ -22,7 +22,7 @@ const RestaurantListing = ({
     <TouchableOpacity
       style={{ marginBottom: SIZES.padding * 2 }}
       onPress={() =>
-        navigation.navigate("RestaurantListing", {
+        navigation.navigate("Restaurant", {
           item,
           currentLocation,
         })
