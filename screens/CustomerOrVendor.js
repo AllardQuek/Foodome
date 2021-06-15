@@ -25,7 +25,7 @@ const CustomerOrVendor = ({ navigation }) => {
                 name='person-outline'
                 type='ionicon'
                 color='#F9881F'
-                size='60'
+                size={60}
             />
             <Text style={styles.iconHeading}>Buyer</Text>
             <Text style={styles.iconLabel}>Order from your favorite{'\n'}stores or vendors!</Text>
@@ -34,7 +34,7 @@ const CustomerOrVendor = ({ navigation }) => {
                 name='pricetag-outline'
                 type='ionicon'
                 color='#F9881F'
-                size='60'
+                size={60}
             />
             <Text style={styles.iconHeading}>Seller</Text>
             <Text style={styles.iconLabel}>Sell and find buyers{'\n'}for your products!</Text>
