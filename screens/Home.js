@@ -9,11 +9,12 @@ import {
   FlatList,
 } from "react-native";
 
-import { icons, images, SIZES, COLORS, FONTS } from "../constants";
+import { SIZES, COLORS, FONTS } from "../constants";
 import categoryData from "../data/categories";
 import shopData from "../data/shops";
 import Category from "../components/Category";
-import Restaurant from "../components/Restaurant";
+import RestaurantListing from "../components/RestaurantListing";
+import HomeHeader from "../components/HomeHeader";
 
 const Home = ({ navigation }) => {
   const initialCurrentLocation = {
@@ -34,67 +35,16 @@ const Home = ({ navigation }) => {
     orderlist = [];
   } 
 
-  function renderHeader() {
-    return (
-      <View style={{ flexDirection: "row", height: 50 }}>
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingLeft: SIZES.padding * 2,
-            justifyContent: "center",
-          }}
-        >
-          <Image
-            source={icons.nearby}
-            resizeMode="contain"
-            style={{
-              width: 30,
-              height: 30,
-            }}
-          />
-        </TouchableOpacity>
-
-        <View
-          style={{ flex: 1, alignItems: "center", justifyContent: "center" }}
-        >
-          <View
-            style={{
-              width: "70%",
-              height: "100%",
-              backgroundColor: COLORS.lightGray3,
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: SIZES.radius,
-            }}
-          >
-            <Text style={{ ...FONTS.h3 }}>{currentLocation.streetName}</Text>
-          </View>
-        </View>
-
-        <TouchableOpacity
-          style={{
-            width: 50,
-            paddingRight: SIZES.padding * 2,
-            justifyContent: "center",
-          }}
-          onPress={() => navigation.navigate("Cart", orderlist)}
-        >
-          <Image
-            source={icons.basket}
-            resizeMode="contain"
-            style={{
-              width: 30,
-              height: 30,
-            }}
-          />
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
   function renderMainCategories() {
     const renderItem = ({ item }) => {
-      return <Category item={item} />;
+      return (
+        <Category
+          shopData={shopData}
+          item={item}
+          restaurants={restaurants}
+          setRestaurants={setRestaurants}
+        />
+      );
     };
 
     return (
@@ -115,7 +65,7 @@ const Home = ({ navigation }) => {
 
   function renderRestaurantList() {
     const renderItem = ({ item }) => (
-      <Restaurant
+      <RestaurantListing
         categories={categories}
         item={item}
         navigation={navigation}
@@ -139,7 +89,7 @@ const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      {renderHeader()}
+      <HomeHeader currentLocation={currentLocation} />
       {renderMainCategories()}
       {renderRestaurantList()}
     </SafeAreaView>

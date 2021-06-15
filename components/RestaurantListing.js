@@ -60,7 +60,7 @@ const Restaurant = ({ categories, item, navigation, currentLocation, orderlist }
         </View>
       </View>
 
-      {/* Restaurant Info */}
+      {/* RestaurantListing Info */}
       <Text style={{ ...FONTS.body2 }}>{item.name}</Text>
 
       <View
@@ -133,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Restaurant;
+export default RestaurantListing;

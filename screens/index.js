@@ -3,12 +3,6 @@ import Restaurant from "./Restaurant"
 import OrderDelivery from "./OrderDelivery"
 import Cart from "./Cart"
 import StartUp from "./StartUp";
+import SplashScreen from "./SplashScreen";
 
-export {
-    Home,
-    Restaurant,
-    OrderDelivery,
-    Cart,
-    StartUp,
-}
-
+export { SplashScreen, StartUp, Home, Restaurant, OrderDelivery, Cart};
