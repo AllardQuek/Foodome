@@ -13,7 +13,7 @@ import { SIZES, COLORS, FONTS } from "../constants";
 import categoryData from "../data/categories";
 import shopData from "../data/shops";
 import Category from "../components/Category";
-import Restaurant from "../components/Restaurant";
+import RestaurantListing from "../components/RestaurantListing";
 import HomeHeader from "../components/HomeHeader";
 
 const Home = ({ navigation }) => {
@@ -33,7 +33,14 @@ const Home = ({ navigation }) => {
 
   function renderMainCategories() {
     const renderItem = ({ item }) => {
-      return <Category item={item} />;
+      return (
+        <Category
+          shopData={shopData}
+          item={item}
+          restaurants={restaurants}
+          setRestaurants={setRestaurants}
+        />
+      );
     };
 
     return (
@@ -54,7 +61,7 @@ const Home = ({ navigation }) => {
 
   function renderRestaurantList() {
     const renderItem = ({ item }) => (
-      <Restaurant
+      <RestaurantListing
         categories={categories}
         item={item}
         navigation={navigation}
