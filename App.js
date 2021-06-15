@@ -6,6 +6,7 @@ import { useFonts } from "expo-font";
 
 import { Restaurant, OrderDelivery, StartUp } from "./screens";
 import Tabs from "./navigation/tabs";
+import SplashScreen from "./screens/SplashScreen";
 
 const Stack = createStackNavigator();
 
@@ -26,8 +27,9 @@ const App = () => {
         screenOptions={{
           headerShown: false,
         }}
-        initialRouteName={"StartUp"}
+        initialRouteName={"SplashScreen"}
       >
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen name="StartUp" component={StartUp} />
         <Stack.Screen name="Home" component={Tabs} />
         <Stack.Screen name="Restaurant" component={Restaurant} />
