@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { COLORS, SIZES } from "../constants";
+import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { COLORS } from "../constants";
 import { Appbar } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Icon } from "react-native-elements";
