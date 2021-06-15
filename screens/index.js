@@ -1,11 +1,6 @@
-import Home from "./Home"
-import Restaurant from "./Restaurant"
-import OrderDelivery from "./OrderDelivery"
-import CustomerOrVendor from "./CustomerOrVendor";
+import Home from "./Home";
+import Restaurant from "./Restaurant";
+import OrderDelivery from "./OrderDelivery";
+import StartUp from "./StartUp";
 
-export {
-    CustomerOrVendor,
-    Home,
-    Restaurant,
-    OrderDelivery,
-}
+export { StartUp, Home, Restaurant, OrderDelivery };
