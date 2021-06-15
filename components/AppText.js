@@ -12,7 +12,7 @@ const AppText = (props) => {
 const styles = StyleSheet.create({
   text: {
     fontFamily: "Avenir",
-    fontSize: "3rem",
+    fontSize: 72,
   },
 });
 

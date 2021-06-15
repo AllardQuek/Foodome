@@ -3,7 +3,7 @@ import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import HomeScreen from "./screens/HomeScreen";
-import EventsScreen from "./screens/EventsScreen";
+import Products from "./screens/Products";
 import ContactsScreen from "./screens/ContactsScreen";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
@@ -36,7 +36,7 @@ export default function App() {
         }}
       >
         <Tab.Screen name="Food" component={HomeScreen} />
-        <Tab.Screen name="Cart" component={EventsScreen} />
+        <Tab.Screen name="Cart" component={Products} />
         <Tab.Screen name="Orders" component={ContactsScreen} />
       </Tab.Navigator>
     </NavigationContainer>
