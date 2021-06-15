@@ -1,44 +1,45 @@
-import * as React from "react";
-import { Text, View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import HomeScreen from "./screens/HomeScreen";
-import Products from "./screens/Products";
-import ContactsScreen from "./screens/ContactsScreen";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
+import React from 'react';
 
-const Tab = createBottomTabNavigator();
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from '@react-navigation/native'
+import { useFonts } from 'expo-font';
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
 
-            //Set the icon based on which route it is (name of the tab)
-            if (route.name === "Home") {
-              iconName = "home";
-            } else if (route.name === "Events") {
-              iconName = "list";
-            } else if (route.name === "Contacts") {
-              iconName = focused ? "user" : "user-o";
-            }
 
-            // You can return any component that you like here!
-            return <FontAwesome name={iconName} size={size} color={color} />;
-          },
-        })}
-        tabBarOptions={{
-          activeTintColor: "tomato",
-          inactiveTintColor: "gray",
-        }}
-      >
-        <Tab.Screen name="Food" component={HomeScreen} />
-        <Tab.Screen name="Cart" component={Products} />
-        <Tab.Screen name="Orders" component={ContactsScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+import { Restaurant, OrderDelivery } from './screens'
+import Tabs from './navigation/tabs'
+
+const Stack = createStackNavigator();
+
+const App = () => {
+
+    const [loaded] = useFonts({
+      "Roboto-Black" : require('./assets/fonts/Roboto-Black.ttf'),
+      "Roboto-Bold" : require('./assets/fonts/Roboto-Bold.ttf'),
+      "Roboto-Regular" : require('./assets/fonts/Roboto-Regular.ttf'),
+
+    })
+    
+    if(!loaded){
+      return null;
+    }
+    
+    
+      return (
+          <NavigationContainer>
+              <Stack.Navigator
+                  screenOptions={{
+                      headerShown: false
+                  }}
+                  initialRouteName={'Home'}
+              >
+                  <Stack.Screen name="Home" component={Tabs} />
+                  <Stack.Screen name="Restaurant" component={Restaurant} />
+                  <Stack.Screen name="OrderDelivery" component={OrderDelivery} />
+              </Stack.Navigator>
+          </NavigationContainer>
+      )
+    
 }
+
+export default App;
