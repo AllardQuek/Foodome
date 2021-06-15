@@ -29,6 +29,10 @@ const Home = ({ navigation }) => {
 
   const [categories, setCategories] = React.useState(categoryData);
   const [restaurants, setRestaurants] = React.useState(shopData);
+  let orderlist = navigation.params;
+  if (typeof orderlist == undefined) {
+    orderlist = [];
+  } 
 
   function renderHeader() {
     return (
@@ -73,6 +77,7 @@ const Home = ({ navigation }) => {
             paddingRight: SIZES.padding * 2,
             justifyContent: "center",
           }}
+          onPress={() => navigation.navigate("Cart", orderlist)}
         >
           <Image
             source={icons.basket}
@@ -115,6 +120,7 @@ const Home = ({ navigation }) => {
         item={item}
         navigation={navigation}
         currentLocation={currentLocation}
+        orderlist = {orderlist}
       />
     );
 

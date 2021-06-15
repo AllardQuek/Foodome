@@ -14,10 +14,10 @@ import { isIphoneX } from 'react-native-iphone-x-helper'
 
 import { icons, COLORS, SIZES, FONTS } from '../constants'
 
-const Cart = ({ route, navigation }) => {
+const Cart = ({ navigation }) => {
 
     const scrollX = new Animated.Value(0);
-    let { orderlist } = route.params;
+    const orderlist  = navigation.params;
 
     function renderHeader() {
         return (
@@ -87,61 +87,16 @@ const Cart = ({ route, navigation }) => {
     }
 
     function renderOrderList() {
-        const renderItem = ({ item }) => (
-          <TouchableOpacity
-            style={{ marginBottom: SIZES.padding * 2 }}
-          >
-            {/* Image */}
-            <View
-              style={{
-                marginBottom: SIZES.padding,
-              }}
-            >
-              <Image
-                source={item.photo}
-                resizeMode="cover"
-                style={{
-                  width: "100%",
-                  height: 200,
-                  borderRadius: SIZES.radius,
-                }}
-              />
-    
-              <View
-                style={{
-                  position: "absolute",
-                  bottom: 0,
-                  height: 50,
-                  width: SIZES.width * 0.3,
-                  backgroundColor: COLORS.white,
-                  borderTopRightRadius: SIZES.radius,
-                  borderBottomLeftRadius: SIZES.radius,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  ...styles.shadow,
-                }}
-              >
-                <Text style={{ ...FONTS.h4 }}>10 min</Text>
-              </View>
-            </View>
-    
-            {/* Restaurant Info */}
-            <Text style={{ ...FONTS.body2 }}>Item #1</Text>
-          </TouchableOpacity>
-        );
-    
         return (
           <FlatList
-            // data={restaurants}
-            // keyExtractor={(item) => `${item.id}`}
-            // renderItem={renderItem}
-            contentContainerStyle={{
-              paddingHorizontal: SIZES.padding * 2,
-              paddingBottom: 30,
-            }}
+            data={orderlist}
+            renderItem={({ item })=> (
+                <Text>item.name</Text>
+
+            )}
           />
         );
-      }
+    }
 
     function renderOrder() {
         return (

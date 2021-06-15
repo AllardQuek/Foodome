@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { icons, SIZES, COLORS, FONTS } from "../constants";
 
-const Restaurant = ({ categories, item, navigation, currentLocation }) => {
+const Restaurant = ({ categories, item, navigation, currentLocation, orderlist }) => {
   // Dummy Datas
   const getCategoryNameById = (id) => {
     let category = categories.filter((a) => a.id == id);
@@ -13,6 +13,8 @@ const Restaurant = ({ categories, item, navigation, currentLocation }) => {
     return "";
   };
 
+  orderlist = [];
+
   return (
     <TouchableOpacity
       style={{ marginBottom: SIZES.padding * 2 }}
@@ -20,6 +22,7 @@ const Restaurant = ({ categories, item, navigation, currentLocation }) => {
         navigation.navigate("Restaurant", {
           item,
           currentLocation,
+          orderlist,
         })
       }
     >

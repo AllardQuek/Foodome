@@ -18,12 +18,14 @@ const Restaurant = ({ route, navigation }) => {
     const [restaurant, setRestaurant] = React.useState(null);
     const [currentLocation, setCurrentLocation] = React.useState(null);
     const [orderItems, setOrderItems] = React.useState([]);
+    const [orderList, setOrderList] = React.useState([]);
 
     React.useEffect(() => {
-        let { item, currentLocation } = route.params;
+        let { item, currentLocation, orderlist } = route.params;
 
         setRestaurant(item)
         setCurrentLocation(currentLocation)
+        setOrderList(orderlist)
     })
 
     function editOrder(action, menuId, price) {
@@ -90,7 +92,11 @@ const Restaurant = ({ route, navigation }) => {
                         paddingLeft: SIZES.padding * 2,
                         justifyContent: 'center'
                     }}
-                    onPress={() => navigation.goBack()}
+                    onPress={() =>
+                        navigation.navigate("Home", {
+                          orderList
+                        })
+                      }
                 >
                     <Image
                         source={icons.back}
@@ -396,10 +402,10 @@ const Restaurant = ({ route, navigation }) => {
                                 alignItems: 'center',
                                 borderRadius: SIZES.radius
                             }}
-                            onPress={() => navigation.navigate("OrderDelivery", {
-                                restaurant: restaurant,
-                                currentLocation: currentLocation
-                            })}
+                            onPress={() => {
+                                navigation.navigate("Cart",
+                                orderList)
+                            }}   
                         >
                             <Text style={{ color: COLORS.white, ...FONTS.h2 }}>Order</Text>
                         </TouchableOpacity>

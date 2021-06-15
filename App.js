@@ -4,7 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 
-import { Restaurant, OrderDelivery, StartUp } from "./screens";
+import { Restaurant, OrderDelivery, StartUp, Cart } from "./screens";
 import Tabs from "./navigation/tabs";
 
 const Stack = createStackNavigator();
@@ -29,6 +29,7 @@ const App = () => {
         initialRouteName={"StartUp"}
       >
         <Stack.Screen name="StartUp" component={StartUp} />
+        <Stack.Screen name="Cart" component={Cart} />
         <Stack.Screen name="Home" component={Tabs} />
         <Stack.Screen name="Restaurant" component={Restaurant} />
         <Stack.Screen name="OrderDelivery" component={OrderDelivery} />
