@@ -11,6 +11,7 @@ import {
     Switch
 } from "react-native";
 import cart from "../data/shoppingCart";
+import HomeHeader from "../components/HomeHeader";
 
 import { isIphoneX } from 'react-native-iphone-x-helper'
 

@@ -9,6 +9,7 @@ import { isIphoneX } from "react-native-iphone-x-helper";
 
 import { Home } from "../screens";
 import GroupOrders from "../screens/GroupOrders";
+import AllOrders from "../screens/AllOrders";
 
 import { COLORS, icons } from "../constants";
 
@@ -143,7 +144,7 @@ const Tabs = () => {
 
       <Tab.Screen
         name="My Orders"
-        component={Home}
+        component={AllOrders}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
