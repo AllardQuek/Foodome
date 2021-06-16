@@ -122,12 +122,12 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Search"
+        name="Group Orders"
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={icons.search}
+              source={icons.group}
               resizeMode="contain"
               style={{
                 width: 25,
@@ -141,12 +141,12 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="Like"
+        name="My Orders"
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={icons.like}
+              source={icons.shoppingbag}
               resizeMode="contain"
               style={{
                 width: 25,
@@ -160,7 +160,7 @@ const Tabs = () => {
       />
 
       <Tab.Screen
-        name="User"
+        name="Profile"
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => (
