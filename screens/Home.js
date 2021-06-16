@@ -30,6 +30,7 @@ const Home = ({ navigation }) => {
 
   const [categories, setCategories] = React.useState(categoryData);
   const [restaurants, setRestaurants] = React.useState(shopData);
+  const [selectedCategory, setSelectedCategory] = React.useState(null);
 
   function renderMainCategories() {
     const renderItem = ({ item }) => {
@@ -39,6 +40,8 @@ const Home = ({ navigation }) => {
           item={item}
           restaurants={restaurants}
           setRestaurants={setRestaurants}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
         />
       );
     };

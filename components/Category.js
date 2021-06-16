@@ -3,9 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { SIZES, COLORS, FONTS } from "../constants";
 
-const Category = ({ item, shopData, setRestaurants, restaurants }) => {
-  const [selectedCategory, setSelectedCategory] = React.useState(null);
-
+const Category = ({
+  item,
+  shopData,
+  setRestaurants,
+  restaurants,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
   const onSelectCategory = (category) => {
     // Filter restaurant
     let restaurantList = shopData.filter((a) =>

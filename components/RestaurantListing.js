@@ -23,7 +23,7 @@ const RestaurantListing = ({
       style={{ marginBottom: SIZES.padding * 2 }}
       onPress={() =>
         // * Here is how we navigate to the next screen
-        navigation.navigate("RestaurantListing", {
+        navigation.navigate("Restaurant", {
           item,
           currentLocation,
         })
