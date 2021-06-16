@@ -88,7 +88,7 @@ const Cart = ({ navigation }) => {
     return (
       <FlatList
         data={cart}
-        keyExtractor={item => item.key.toString()}
+        keyExtractor={(item) => item.key.toString()}
         renderItem={({ item }) => (
           <View
             style={{
@@ -217,9 +217,10 @@ const Cart = ({ navigation }) => {
                 alignItems: "center",
                 borderRadius: SIZES.radius,
               }}
+              onPress={() => navigation.navigate("GroupOrders")}
             >
               <Text style={{ color: COLORS.white, ...FONTS.h2 }}>
-                Normal Order
+                Group Order
               </Text>
             </TouchableOpacity>
           </View>
@@ -253,7 +254,7 @@ const Cart = ({ navigation }) => {
               }}
             >
               <Text style={{ color: COLORS.white, ...FONTS.h2 }}>
-                Group Order
+                Normal Order
               </Text>
             </TouchableOpacity>
           </View>

@@ -2,7 +2,8 @@ import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 
 import { COLORS, SIZES, FONTS } from "../constants";
-const OrderButton = ({ navigation, restaurant, currentLocation,}) => {
+
+const OrderButton = ({ navigation }) => {
   return (
     <View
       style={{

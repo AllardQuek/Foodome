@@ -10,7 +10,8 @@ import HomeHeader from "../components/HomeHeader";
 
 const Home = ({ navigation }) => {
   const initialCurrentLocation = {
-    streetName: "Foodome",
+    // streetName: "Foodome",
+    streetName: "22 Clementi Avenue 5",
     gps: {
       latitude: 1.5496614931250685,
       longitude: 110.36381866919922,
