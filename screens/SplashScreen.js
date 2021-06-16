@@ -1,12 +1,13 @@
 import React from "react";
 import { Animated, SafeAreaView, StyleSheet } from "react-native";
 import AnimatedLottieView from "lottie-react-native";
+import {MaterialCommunityIcons} from "@expo/vector-icons";
 
 export default function SplashScreen({ navigation }) {
   this.animated = new Animated.Value(0);
 
   const fadeIn = () => {
-    // Will change fadeAnim value to 1 in 5 seconds
+    // Will change animated value to 1 in 3 seconds
     Animated.timing(this.animated, {
       toValue: 1,
       duration: 3000,
@@ -35,6 +36,12 @@ export default function SplashScreen({ navigation }) {
       >
         Foodome
       </Animated.Text>
+      <MaterialCommunityIcons
+          style={{ color: "#F9881F", position: 'absolute', top: 230 }}
+          name="food-croissant"
+          size={64}
+          color="black"
+      />
       <AnimatedLottieView
         source={require("../assets/splash.json")}
         autoPlay
