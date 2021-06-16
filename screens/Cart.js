@@ -88,6 +88,7 @@ const Cart = ({ navigation }) => {
     return (
       <FlatList
         data={cart}
+        keyExtractor={item => item.key.toString()}
         renderItem={({ item }) => (
           <View
             style={{
