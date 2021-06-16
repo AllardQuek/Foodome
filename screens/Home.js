@@ -31,7 +31,6 @@ const Home = ({ navigation }) => {
   const [selectedCategory, setSelectedCategory] = React.useState(null);
   const [categories, setCategories] = React.useState(categoryData);
   const [restaurants, setRestaurants] = React.useState(shopData);
-  const [selectedCategory, setSelectedCategory] = React.useState(null);
 
   function renderMainCategories() {
     const renderItem = ({ item }) => {
