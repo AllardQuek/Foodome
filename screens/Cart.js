@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     StyleSheet,
     SafeAreaView,
@@ -7,7 +7,8 @@ import {
     TouchableOpacity,
     Image,
     Animated,
-    FlatList
+    FlatList,
+    Switch
 } from "react-native";
 import cart from "../data/shoppingCart";
 
@@ -16,6 +17,9 @@ import { isIphoneX } from 'react-native-iphone-x-helper'
 import { icons, COLORS, SIZES, FONTS } from '../constants'
 
 const Cart = ({ navigation }) => {
+
+    const [isEnabled, setIsEnabled] = useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
     function renderHeader() {
         return (
@@ -165,10 +169,35 @@ const Cart = ({ navigation }) => {
                         </View>
                     </View>
 
-                    {/* Order Button */}
+                    {/* Switch button */}
                     <View
                         style={{
-                            padding: SIZES.padding * 2,
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            paddingVertical: SIZES.padding * 2,
+                            paddingHorizontal: SIZES.padding * 3
+                        }}
+                    >
+                        <View style={{ flexDirection: 'row' }}>
+                        <Switch
+                            trackColor={{ false: "#767577", true: COLORS.primary }}
+                            thumbColor={isEnabled ? "#f4f3f4" : "#f4f3f4"}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={toggleSwitch}
+                            value={isEnabled}
+                        />
+                        <Text style={{ 
+                            paddingHorizontal: SIZES.padding * 2,
+                            paddingVertical: SIZES.padding * 0.5,
+                             ...FONTS.h3 }}>Help to Deliver</Text>
+                        </View>
+                    </View>
+
+                    {/* Order Button */}
+                    
+                    <View
+                        style={{
+                            padding: SIZES.padding,
                             alignItems: 'center',
                             justifyContent: 'center'
                         }}
@@ -184,6 +213,19 @@ const Cart = ({ navigation }) => {
                         >
                             <Text style={{ color: COLORS.white, ...FONTS.h2 }}>Normal Order</Text>
                         </TouchableOpacity>
+                    </View>
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            paddingVertical: SIZES.padding,
+                            paddingHorizontal: SIZES.padding * 3,
+                            borderBottomColor: COLORS.lightGray2,
+                            borderBottomWidth: 1,
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Text style={{ ...FONTS.h3 }}>OR</Text>
                     </View>
                     <View
                         style={{
