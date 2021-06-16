@@ -20,11 +20,8 @@ const OrderButton = ({ navigation, restaurant, currentLocation }) => {
           borderRadius: SIZES.radius,
         }}
         onPress={() =>
-          // * When user clicks order, navigate to OrderDelivery screen
-          navigation.navigate("OrderDelivery", {
-            restaurant: restaurant,
-            currentLocation: currentLocation,
-          })
+          // * When user clicks order, navigate to Cart screen
+          navigation.navigate("Cart")
         }
       >
         <Text style={{ color: COLORS.white, ...FONTS.h2 }}>Order</Text>
