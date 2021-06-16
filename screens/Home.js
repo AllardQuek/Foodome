@@ -8,7 +8,7 @@ import Category from "../components/Category";
 import RestaurantListing from "../components/RestaurantListing";
 import HomeHeader from "../components/HomeHeader";
 
-const Home = ({ navigation}) => {
+const Home = ({ navigation }) => {
   const initialCurrentLocation = {
     streetName: "Foodome",
     gps: {
@@ -78,10 +78,7 @@ const Home = ({ navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <HomeHeader 
-      currentLocation={currentLocation}
-      navigation={navigation}
-      />
+      <HomeHeader currentLocation={currentLocation} navigation={navigation} />
       {renderMainCategories()}
       {renderRestaurantList()}
     </SafeAreaView>

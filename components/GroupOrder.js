@@ -3,12 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { icons, SIZES, COLORS, FONTS } from "../constants";
 
-const RestaurantListing = ({
-  categories,
-  item,
-  navigation,
-  currentLocation,
-}) => {
+const GroupOrder = ({ categories, item, navigation, currentLocation }) => {
   // Dummy Datas
   const getCategoryNameById = (id) => {
     let category = categories.filter((a) => a.id == id);
@@ -63,7 +58,7 @@ const RestaurantListing = ({
         </View>
       </View>
 
-      {/* RestaurantListing Info */}
+      {/* GroupOrder Info */}
       <Text style={{ ...FONTS.body2 }}>{item.name}</Text>
 
       <View
@@ -136,4 +131,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RestaurantListing;
+export default GroupOrder;

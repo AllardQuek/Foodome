@@ -1,10 +1,13 @@
 import React from "react";
+import { View, Text } from "react-native";
+import GroupOrder from "../components/GroupOrder";
 
 const GroupOrders = () => {
   return (
-    <div>
+    <>
       <Text>Order No. 1: Chocolate Cake</Text>
-    </div>
+      <RestaurantListing />
+    </>
   );
 };
 

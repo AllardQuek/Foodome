@@ -8,6 +8,7 @@ import Svg, { Path } from "react-native-svg";
 import { isIphoneX } from "react-native-iphone-x-helper";
 
 import { Home } from "../screens";
+import GroupOrders from "../screens/GroupOrders";
 
 import { COLORS, icons } from "../constants";
 
@@ -123,7 +124,7 @@ const Tabs = () => {
 
       <Tab.Screen
         name="Group Orders"
-        component={Home}
+        component={GroupOrders}
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
