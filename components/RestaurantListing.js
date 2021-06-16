@@ -19,6 +19,7 @@ const RestaurantListing = ({ categories, item, navigation, currentLocation, orde
     <TouchableOpacity
       style={{ marginBottom: SIZES.padding * 2 }}
       onPress={() =>
+        // * Here is how we navigate to the next screen
         navigation.navigate("Restaurant", {
           item,
           currentLocation,

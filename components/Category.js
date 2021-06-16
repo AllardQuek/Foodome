@@ -7,6 +7,7 @@ const Category = ({
   item,
   shopData,
   setRestaurants,
+  restaurants,
   selectedCategory,
   setSelectedCategory,
 }) => {

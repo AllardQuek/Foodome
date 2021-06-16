@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-  FlatList,
-} from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, FlatList } from "react-native";
 
 import { SIZES, COLORS, FONTS } from "../constants";
 import categoryData from "../data/categories";
