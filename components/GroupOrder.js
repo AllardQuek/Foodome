@@ -17,7 +17,7 @@ const GroupOrder = ({ item }) => {
 
   return (
     <TouchableOpacity
-      style={{ marginBottom: SIZES.padding * 2 }}
+      style={{ marginBottom: SIZES.padding * 8 }}
       onPress={() =>
         // * Here is how we navigate to the next screen
         navigation.navigate("Restaurant", {
