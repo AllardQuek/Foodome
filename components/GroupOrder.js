@@ -1,17 +1,19 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  Button,
+} from "react-native";
+import JoinButton from "./JoinButton";
 
 import { icons, SIZES, COLORS, FONTS } from "../constants";
 
-const GroupOrder = ({ categories, item, navigation, currentLocation }) => {
-  // Dummy Datas
-  const getCategoryNameById = (id) => {
-    let category = categories.filter((a) => a.id == id);
-
-    if (category.length > 0) return category[0].name;
-
-    return "";
-  };
+const GroupOrder = ({ item }) => {
+  const groupSize = item.numInGroup;
+  const numNeeded = 3 - groupSize;
 
   return (
     <TouchableOpacity
@@ -60,59 +62,37 @@ const GroupOrder = ({ categories, item, navigation, currentLocation }) => {
 
       {/* GroupOrder Info */}
       <Text style={{ ...FONTS.body2 }}>{item.name}</Text>
+      <Text style={{ ...FONTS.body4 }}>Group location: {item.location}</Text>
+      <Text style={{ ...FONTS.body3, marginTop: 15, marginBottom: 10 }}>
+        {item.numInGroup} {groupSize > 1 ? "people are" : "person is"} in this
+        group. They need {numNeeded} more{" "}
+        {numNeeded > 1 ? "neighbours" : "neighbour"} neighbour to complete this
+        order!
+      </Text>
 
       <View
         style={{
           marginTop: SIZES.padding,
           flexDirection: "row",
+          alignItems: "center",
+          //   justifyContent: "center"
         }}
       >
-        {/* Rating */}
-        <Image
-          source={icons.star}
-          style={{
-            height: 20,
-            width: 20,
-            tintColor: COLORS.primary,
-            marginRight: 10,
-          }}
-        />
-        <Text style={{ ...FONTS.body3 }}>{item.rating}</Text>
-
-        {/* Categories */}
-        <View
-          style={{
-            flexDirection: "row",
-            marginLeft: 10,
-          }}
-        >
-          {item.categories.map((categoryId) => {
-            return (
-              <View style={{ flexDirection: "row" }} key={categoryId}>
-                <Text style={{ ...FONTS.body3 }}>
-                  {getCategoryNameById(categoryId)}
-                </Text>
-                <Text style={{ ...FONTS.h3, color: COLORS.darkgray }}> . </Text>
-              </View>
-            );
-          })}
-
-          {/* Price */}
-          {[1, 2, 3].map((priceRating) => (
-            <Text
-              key={priceRating}
+        {/* 5-stars Rating */}
+        {[0, 1, 2, 3, 4].map((item, index) => {
+          return (
+            <Image
+              source={icons.star}
               style={{
-                ...FONTS.body3,
-                color:
-                  priceRating <= item.priceRating
-                    ? COLORS.black
-                    : COLORS.darkgray,
+                height: 20,
+                width: 20,
+                tintColor: COLORS.primary,
+                marginRight: 10,
               }}
-            >
-              $
-            </Text>
-          ))}
-        </View>
+            />
+          );
+        })}
+        <JoinButton />
       </View>
     </TouchableOpacity>
   );
@@ -128,6 +108,10 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 3,
     elevation: 1,
+  },
+  joinbutton: {
+    color: "#000",
+    backgroundColor: "blue",
   },
 });
 
