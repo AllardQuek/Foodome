@@ -12,6 +12,9 @@ import JoinButton from "./JoinButton";
 import { icons, SIZES, COLORS, FONTS } from "../constants";
 
 const GroupOrder = ({ item }) => {
+  const groupSize = item.numInGroup;
+  const numNeeded = 3 - groupSize;
+
   return (
     <TouchableOpacity
       style={{ marginBottom: SIZES.padding * 2 }}
@@ -59,10 +62,12 @@ const GroupOrder = ({ item }) => {
 
       {/* GroupOrder Info */}
       <Text style={{ ...FONTS.body2 }}>{item.name}</Text>
-      <Text style={{ ...FONTS.body4 }}>{item.location}</Text>
-      <Text style={{ ...FONTS.body3, marginTop: 20, marginBottom: 10 }}>
-        {item.numInGroup} people are in this group. They need 1 more neighbour
-        to complete this order!
+      <Text style={{ ...FONTS.body4 }}>Group location: {item.location}</Text>
+      <Text style={{ ...FONTS.body3, marginTop: 15, marginBottom: 10 }}>
+        {item.numInGroup} {groupSize > 1 ? "people are" : "person is"} in this
+        group. They need {numNeeded} more{" "}
+        {numNeeded > 1 ? "neighbours" : "neighbour"} neighbour to complete this
+        order!
       </Text>
 
       <View
