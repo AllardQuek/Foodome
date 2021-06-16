@@ -1,4 +1,4 @@
-import { icons, images } from "../constants";
+import { images } from "../constants";
 
 const groupOrders = [
   {

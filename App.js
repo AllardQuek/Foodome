@@ -4,7 +4,13 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 
-import { Restaurant, OrderDelivery, StartUp, Cart } from "./screens";
+import {
+  Restaurant,
+  OrderDelivery,
+  StartUp,
+  Cart,
+  GroupOrders,
+} from "./screens";
 import Tabs from "./navigation/tabs";
 import SplashScreen from "./screens/SplashScreen";
 
@@ -35,6 +41,7 @@ const App = () => {
         <Stack.Screen name="Home" component={Tabs} />
         <Stack.Screen name="Restaurant" component={Restaurant} />
         <Stack.Screen name="OrderDelivery" component={OrderDelivery} />
+        <Stack.Screen name="GroupOrders" component={GroupOrders} />
       </Stack.Navigator>
     </NavigationContainer>
   );

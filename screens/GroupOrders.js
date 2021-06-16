@@ -25,7 +25,7 @@ const GroupOrders = () => {
       <HomeHeader currentLocation={currentLocation} navigation={null} />
       <FlatList
         data={groupOrders}
-        keyExtractor={(item) => `${item.id}`}
+        keyExtractor={(item) => `${item.key}`}
         renderItem={renderItem}
         contentContainerStyle={{
           paddingHorizontal: SIZES.padding * 2,
