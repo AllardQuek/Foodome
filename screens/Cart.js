@@ -9,15 +9,13 @@ import {
     Animated,
     FlatList
 } from "react-native";
+import cart from "../data/shoppingCart";
 
 import { isIphoneX } from 'react-native-iphone-x-helper'
 
 import { icons, COLORS, SIZES, FONTS } from '../constants'
 
 const Cart = ({ navigation }) => {
-
-    const scrollX = new Animated.Value(0);
-    const orderlist  = navigation.params;
 
     function renderHeader() {
         return (
@@ -29,9 +27,7 @@ const Cart = ({ navigation }) => {
                         justifyContent: 'center'
                     }}
                     onPress={() =>
-                        navigation.navigate("Home", {
-                          orderlist
-                        })
+                        navigation.navigate("Home")
                       }
                 >
                     <Image
@@ -87,16 +83,28 @@ const Cart = ({ navigation }) => {
     }
 
     function renderOrderList() {
+    
         return (
-          <FlatList
-            data={orderlist}
-            renderItem={({ item })=> (
-                <Text>item.name</Text>
-
-            )}
-          />
-        );
-    }
+            <FlatList
+              data={cart}
+              renderItem={({ item }) => (
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-between',
+                        paddingVertical: SIZES.padding * 2,
+                        paddingHorizontal: SIZES.padding * 3,
+                        borderBottomColor: COLORS.lightGray2,
+                        borderBottomWidth: 1
+                    }}
+                >
+                    <Text style={{ ...FONTS.h3 }}>{item.name}</Text>
+                    <Text style={{ ...FONTS.h3 }}>{item.quantity}</Text>
+                </View>
+              )}
+            />
+          );
+      }
 
     function renderOrder() {
         return (
@@ -118,7 +126,7 @@ const Cart = ({ navigation }) => {
                             borderBottomWidth: 1
                         }}
                     >
-                        <Text style={{ ...FONTS.h3 }}>X items in Cart</Text>
+                        <Text style={{ ...FONTS.h3 }}>4 items in Cart</Text>
                         <Text style={{ ...FONTS.h3 }}>$$</Text>
                     </View>
 
@@ -153,7 +161,7 @@ const Cart = ({ navigation }) => {
                                     tintColor: COLORS.darkgray
                                 }}
                             />
-                            <Text style={{ marginLeft: SIZES.padding, ...FONTS.h4 }}>8888</Text>
+                            <Text style={{ marginLeft: SIZES.padding, ...FONTS.h4 }}>Clementi</Text>
                         </View>
                     </View>
 
@@ -175,6 +183,25 @@ const Cart = ({ navigation }) => {
                             }}
                         >
                             <Text style={{ color: COLORS.white, ...FONTS.h2 }}>Normal Order</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View
+                        style={{
+                            //padding: SIZES.padding * 2,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}
+                    >
+                        <TouchableOpacity
+                            style={{
+                                width: SIZES.width * 0.9,
+                                padding: SIZES.padding,
+                                backgroundColor: COLORS.primary,
+                                alignItems: 'center',
+                                borderRadius: SIZES.radius
+                            }}
+                        >
+                            <Text style={{ color: COLORS.white, ...FONTS.h2 }}>Group Order</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

@@ -8,7 +8,7 @@ import Category from "../components/Category";
 import RestaurantListing from "../components/RestaurantListing";
 import HomeHeader from "../components/HomeHeader";
 
-const Home = ({ navigation }) => {
+const Home = ({ navigation}) => {
   const initialCurrentLocation = {
     streetName: "Foodome",
     gps: {
@@ -23,10 +23,6 @@ const Home = ({ navigation }) => {
   const [selectedCategory, setSelectedCategory] = React.useState(null);
   const [categories, setCategories] = React.useState(categoryData);
   const [restaurants, setRestaurants] = React.useState(shopData);
-  let orderlist = navigation.params;
-  if (typeof orderlist == undefined) {
-    orderlist = [];
-  } 
 
   function renderMainCategories() {
     const renderItem = ({ item }) => {
@@ -64,7 +60,6 @@ const Home = ({ navigation }) => {
         item={item}
         navigation={navigation}
         currentLocation={currentLocation}
-        orderlist = {orderlist}
       />
     );
 
@@ -85,7 +80,7 @@ const Home = ({ navigation }) => {
     <SafeAreaView style={styles.container}>
       <HomeHeader 
       currentLocation={currentLocation}
-      navigation={navigation} 
+      navigation={navigation}
       />
       {renderMainCategories()}
       {renderRestaurantList()}

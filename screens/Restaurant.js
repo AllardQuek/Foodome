@@ -12,14 +12,12 @@ const Restaurant = ({ route, navigation }) => {
   const [restaurant, setRestaurant] = React.useState(null);
   const [currentLocation, setCurrentLocation] = React.useState(null);
   const [orderItems, setOrderItems] = React.useState([]);
-  const [orderList, setOrderList] = React.useState([]);
 
   React.useEffect(() => {
-    let { item, currentLocation, orderlist } = route.params;
+    let { item, currentLocation} = route.params;
 
     setRestaurant(item);
     setCurrentLocation(currentLocation);
-    setOrderList(orderlist)
   });
 
   return (

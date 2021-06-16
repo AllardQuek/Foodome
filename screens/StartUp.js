@@ -6,6 +6,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Icon } from "react-native-elements";
 
 const StartUp = ({ navigation }) => {
+
   return (
     <SafeAreaView style={{ alignItems: "center" }}>
       <Appbar style={styles.appBar}>
