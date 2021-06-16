@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { icons, SIZES, COLORS, FONTS } from "../constants";
 
-const HomeHeader = ({ currentLocation }) => {
+const HomeHeader = ({ currentLocation, navigation }) => {
   return (
     <View style={{ flexDirection: "row", height: 50 }}>
       <TouchableOpacity
@@ -43,6 +43,9 @@ const HomeHeader = ({ currentLocation }) => {
           paddingRight: SIZES.padding * 2,
           justifyContent: "center",
         }}
+        onPress={() =>
+          navigation.navigate("Cart")
+        }
       >
         <Image
           source={icons.basket}

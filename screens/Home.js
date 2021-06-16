@@ -91,7 +91,10 @@ const Home = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <HomeHeader currentLocation={currentLocation} />
+      <HomeHeader 
+      currentLocation={currentLocation}
+      navigation={navigation} 
+      />
       {renderMainCategories()}
       {renderRestaurantList()}
     </SafeAreaView>

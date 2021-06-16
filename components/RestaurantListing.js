@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 import { icons, SIZES, COLORS, FONTS } from "../constants";
 
-const Restaurant = ({ categories, item, navigation, currentLocation, orderlist }) => {
+const RestaurantListing = ({ categories, item, navigation, currentLocation, orderlist }) => {
   // Dummy Datas
   const getCategoryNameById = (id) => {
     let category = categories.filter((a) => a.id == id);
